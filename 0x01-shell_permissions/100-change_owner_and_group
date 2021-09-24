@@ -1,2 +1,2 @@
 #!/bin/bash
-chown -R recent.staff .
+chown -R recent:staff *
