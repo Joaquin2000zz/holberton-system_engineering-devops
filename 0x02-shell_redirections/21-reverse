@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $rev "Reverse" >> ./20-reverse
+echo $rev "Reverse" | ./20-reverse
