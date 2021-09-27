@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -DJ /etc/passwd
+cut -dj /etc/passwd
