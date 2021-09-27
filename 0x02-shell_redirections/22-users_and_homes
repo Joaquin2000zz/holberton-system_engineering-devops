@@ -1,2 +1,2 @@
 #!/bin/bash
---files0-from=/etc/passwd
+cut -d: -f1,6 /etc/passwd
