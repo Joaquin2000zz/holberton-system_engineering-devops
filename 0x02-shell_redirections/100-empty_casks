@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -aR1 \n  
+ls -aR1 | echo \n  
