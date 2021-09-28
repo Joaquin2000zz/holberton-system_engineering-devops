@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -laR | echo \n  
+ls -laR | echo \n | cut -d: -f6 /etc/passwd | sort
+
