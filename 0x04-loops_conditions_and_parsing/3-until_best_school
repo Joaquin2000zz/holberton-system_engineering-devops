@@ -2,7 +2,7 @@
 #Bash script that displays Best School 10 times.
 counter=0
 
-until [ $counter -gt 10 ]
+until [ $counter -gt 9 ]
 do
 	echo "Best School"
 	((counter++))
