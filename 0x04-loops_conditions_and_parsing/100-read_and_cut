@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that displays Best School 10 times.
+# script that displays the content of the file /etc/passwd in an specific format
 
 buffer="/etc/passwd"
 while IFS=":" read -r Username Password User_ID Group_ID User_ID_Info Home_directory Command
