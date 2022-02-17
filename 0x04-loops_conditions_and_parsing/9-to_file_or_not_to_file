@@ -18,3 +18,4 @@ fi
 if [ -f "$var" ]
 then
 	echo "school is a regular file"
+fi
