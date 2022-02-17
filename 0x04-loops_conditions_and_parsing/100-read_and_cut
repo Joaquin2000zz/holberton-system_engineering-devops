@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays Best School 10 times.
+
+buffer="/etc/passwd"
+while IFS=":" read -r Username Password User_ID Group_ID User_ID_Info Home_directory Command
+do
+	echo "$Username:$User_ID:$Home_directory"
+done < $buffer
