@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays Best School 10 times.
+
+buffer="/etc/passwd"
+while IFS=":" read -r Username Password User_ID Group_ID User_ID_Info Home_directory Command
+do
+	echo "The user $Username is part of the $Group_ID gang, lives in $Home_directory and rides $Command. $User_ID's place is protected by the passcode $Password, more info about the user here: $User_ID_Info"
+done < $buffer
