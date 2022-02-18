@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-# Bash script that displays To infinity and beyond indefinitely
+# Bash script that displays I am invincible! when ignores the SIGTERM with trap
 while true
 do
 	echo "To infinity and beyond"
 	sleep 2
-	if [ $"(trap " " 15)" == true ]
-	then
-		echo "I am invincible!!!"
-	fi
+	trap "echo I am invincible!!!" SIGTERM
 done
