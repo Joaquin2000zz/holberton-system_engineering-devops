@@ -7,6 +7,6 @@ if grep -q "facebook.com\t8.8.8.8" /etc/hosts.new
 then
 	:
 else
-	echo -e 'facebook.com\t8.8.8.8' >> /etc/hosts.new
+	echo -e '8.8.8.8\tfacebook.com' >> /etc/hosts.new
 fi
-cp -f etc/hosts.new /etc/hosts
+cp -f /etc/hosts.new /etc/hosts
