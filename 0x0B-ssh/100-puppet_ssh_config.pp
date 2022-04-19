@@ -5,8 +5,8 @@ node default {
         ensure  => 'present',
         path    => '/etc/ssh/ssh_config',
         mode    => '0744',
-        owner   => 'www-data',
-        group   => 'www-data',
-        content => 'Host *\nPasswordAuthentication no\nIdentityFile ~/.ssh/school',
+        owner   => 'root',
+        group   => 'root',
+        content => 'Host *\n PasswordAuthentication no\n IdentityFile ~/.ssh/school',
     }
 }
