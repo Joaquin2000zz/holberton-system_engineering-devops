@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script that configures a new Ubuntu machine to respect above requirements
+# Install NGINX and restart the service
 sudo apt-get update
 sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
