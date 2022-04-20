@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Install NGINX
+# script that configures a new Ubuntu machine to respect above requirements
 sudo apt-get update
-sudo apt-get install nginx -y
-sudo ufw enable
-echo Hello World | sudo tee /var/www/html/index.nginx-debian.html
-sudo service nginx restart
+sudo apt-get install -y nginx
+sudo uwf allow 'Full'
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
+sudo systemctl restart nginx
