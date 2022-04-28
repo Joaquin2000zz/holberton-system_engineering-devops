@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Dig information from a page. Format:
+# "subdomain [SUB_DOMAIN] is a [RECORD_TYPE] points to [DESTINATION(]"
+func () {
+  subdomain=`dig $2.$1 | grep -A1 -s 'ANSWER SECTION:' | tail -n 1 | cut -d "." -f 1`
+  ip=`dig $2.$1 | grep -A1 -s 'ANSWER SECTION:' | awk '{print $5}'`
+  ip=` echo "$ip" | sed -z 's/\n//'`
+  echo "The subdomain $subdomain is a A record and points to $ip"
+  return 0
+}
+
+func $1 $2
