@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # s is the string searched and the 2nd pattern before g, the string to replace
 sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+service nginx restart
