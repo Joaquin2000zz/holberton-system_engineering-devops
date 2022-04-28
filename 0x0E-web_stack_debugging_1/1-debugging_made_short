@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# the same as the previous but with a pkill -f to kill nginx xd
+sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+pkill -f nginx
