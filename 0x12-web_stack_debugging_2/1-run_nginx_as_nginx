@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-
-# Run nginx as another user
-
-sudo chmod -R +rw /etc/nginx
-sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
-sudo service nginx stop
-sudo -u nginx service nginx start
+# nginx runs as nginx user and listens all active IPs on port 8080
+chmod 777 /etc/nginx/nginx.conf
+pkill -9 apache2
+sudo sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
+su nginx -c "service nginx restart"
