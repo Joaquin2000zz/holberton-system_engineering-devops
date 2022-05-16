@@ -11,6 +11,8 @@ import requests
 from sys import argv
 
 
+if __name__ == "__main__":
+
 todos = requests.get("https://jsonplaceholder.typicode.com/\
 todos?userId={}".format(argv[1]))
 user = requests.get("https://jsonplaceholder.typicode.com/users/{}\
