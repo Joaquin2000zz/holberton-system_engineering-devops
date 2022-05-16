@@ -53,5 +53,5 @@ todos?userId={}".format(n))
             check = lazy(i + 1, FinalDict)
             if check is not None:
                 FinalDict = check
-    with open("todo_all_employees.json", 'a') as f:
+    with open("todo_all_employees.json", 'a+') as f:
         js.dump(FinalDict, f)

@@ -30,5 +30,5 @@ todos?userId={}".format(argv[1]))
             littleDict["completed"] = info.get('completed')
             littleDict["username"] = user.get('username')
             bigDict[key].append(littleDict)
-        with open("{}.json".format(user.get('id')), 'a') as f:
+        with open("{}.json".format(user.get('id')), 'a+') as f:
             js.dump(bigDict, f)
