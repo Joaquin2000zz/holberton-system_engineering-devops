@@ -13,46 +13,31 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    def lazy(n, dictio):
+    def lazy():
         """
         automatize the task in one single function
         """
-        todos = requests.get("https://jsonplaceholder.typicode.com/\
-todos?userId={}".format(n))
-        user = requests.get("https://jsonplaceholder.typicode.com/users/{}\
-".format(n))
-        todos = todos.json()
-        user = user.json()
-        if len(user) == 0 or len(todos) == 0:
-            return None
-
-        key = "{}".format(n)
-        if dictio is None:
-            bigDict = {key: []}
-        else:
-            bigDict = dictio
-            bigDict["{}".format(n)] = []
+        users = requests.get("https://jsonplaceholder.typicode.com/users").json()
+        userids = []
+        for user in users:
+            userids.append(user.get('id'))
+        bigDict = {}
 
         if not os.path.exists("todo_all_employees.json"):
-            for info in todos:
-                littleDict = {}
-                littleDict["username"] = user.get('username')
-                littleDict["task"] = info.get('title')
-                littleDict["completed"] = info.get('completed')
-                bigDict[key].append(littleDict)
+            for userid in userids:
+                bigDict["{}".format(userid)] = []
+                todos = requests.get("https://jsonplaceholder.typicode.com/\
+todos?userid={}".format(userid)).json()
+                for info in todos:
+                    littleDict = {}
+                    littleDict["username"] = user.get('username')
+                    littleDict["task"] = info.get('title')
+                    littleDict["completed"] = info.get('completed')
+                    bigDict["{}".format(userid)].append(littleDict)
         return bigDict
 
-    flag = False
-    i = 0
-    for i in range(10):
-        if flag is False:
-            flag = True
-            check = lazy(i + 1, None)
-            if check is not None:
-                FinalDict = check
-        else:
-            check = lazy(i + 1, FinalDict)
-            if check is not None:
-                FinalDict = check
+    check = lazy()
+    if check is not None:
+        FinalDict = check
     with open("todo_all_employees.json", 'a+') as f:
         js.dump(FinalDict, f)
