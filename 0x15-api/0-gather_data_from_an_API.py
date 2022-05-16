@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """
 using the https://jsonplaceholder.typicode.com/ API with the requests module
 """
