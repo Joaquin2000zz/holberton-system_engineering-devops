@@ -17,7 +17,8 @@ if __name__ == "__main__":
         """
         automatize the task in one single function
         """
-        users = requests.get("https://jsonplaceholder.typicode.com/users").json()
+        users = requests.get("https://jsonplaceholder.typicode.com/use\
+rs").json()
         userids = []
         for user in users:
             userids.append(user.get('id'))
