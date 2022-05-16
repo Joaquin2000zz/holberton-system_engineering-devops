@@ -28,4 +28,4 @@ todos?userId={}".format(argv[1]))
                                                           completed,
                                                           totalTasks))
     for line in completedList:
-        print("\t{}".format(line))
+        print("\t {}".format(line))
