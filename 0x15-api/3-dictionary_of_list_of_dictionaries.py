@@ -19,19 +19,18 @@ if __name__ == "__main__":
         """
         users = requests.get("https://jsonplaceholder.typicode.com/use\
 rs").json()
-        userids = []
+        userids = {}
         for user in users:
-            userids.append(user.get('id'))
+            userids["{}".format(user.get('id'))] = user.get('username')
         bigDict = {}
-
         if not os.path.exists("todo_all_employees.json"):
-            for userid in userids:
+            for userid, username in userids.items():
                 bigDict["{}".format(userid)] = []
                 todos = requests.get("https://jsonplaceholder.typicode.com/\
-todos?userid={}".format(userid)).json()
+todos?userId={}".format(userid)).json()
                 for info in todos:
                     littleDict = {}
-                    littleDict["username"] = user.get('username')
+                    littleDict["username"] = username
                     littleDict["task"] = info.get('title')
                     littleDict["completed"] = info.get('completed')
                     bigDict["{}".format(userid)].append(littleDict)
