@@ -13,20 +13,20 @@ from sys import argv
 
 if __name__ == "__main__":
 
-todos = requests.get("https://jsonplaceholder.typicode.com/\
+    todos = requests.get("https://jsonplaceholder.typicode.com/\
 todos?userId={}".format(argv[1]))
-user = requests.get("https://jsonplaceholder.typicode.com/users/{}\
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}\
 ".format(argv[1]))
-todos = todos.json()
-user = user.json()
+    todos = todos.json()
+    user = user.json()
 
-completedList = ["{}".format(argv[1]), "{}".format(user.get('username\
+    completedList = ["{}".format(argv[1]), "{}".format(user.get('username\
 ')), "", ""]
 
-if not os.path.exists("{}.csv".format(user.get('id'))):
-    for info in todos:
-        completedList[2] = info.get('completed')
-        completedList[3] = info.get('title')
-        with open("{}.csv".format(user.get('id')), 'a') as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-            writer.writerow(completedList)
+    if not os.path.exists("{}.csv".format(user.get('id'))):
+        for info in todos:
+            completedList[2] = info.get('completed')
+            completedList[3] = info.get('title')
+            with open("{}.csv".format(user.get('id')), 'a') as f:
+                writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+                writer.writerow(completedList)
