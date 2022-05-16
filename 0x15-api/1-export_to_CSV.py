@@ -21,5 +21,5 @@ if not os.path.exists(f"{user.get('id')}.csv"):
         completedList[2] = info.get('completed')
         completedList[3] = info.get('title')
         with open(f"{user.get('id')}.csv", 'a') as f:
-            writer = csv.writer(f)
+            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
             writer.writerow(completedList)
