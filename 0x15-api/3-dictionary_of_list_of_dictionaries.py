@@ -31,9 +31,9 @@ todos?userId={n}')
     if not os.path.exists(f"todo_all_employees.json"):
         for info in todos:
             littleDict = {}
+            littleDict["username"] = user.get('username')
             littleDict["task"] = info.get('title')
             littleDict["completed"] = info.get('completed')
-            littleDict["username"] = user.get('username')
             bigDict[key].append(littleDict)
     return bigDict
 
