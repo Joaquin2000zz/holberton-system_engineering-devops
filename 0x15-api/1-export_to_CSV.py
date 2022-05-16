@@ -27,6 +27,6 @@ todos?userId={}".format(argv[1]))
         for info in todos:
             completedList[2] = info.get('completed')
             completedList[3] = info.get('title')
-            with open("{}.csv".format(user.get('id')), 'a') as f:
+            with open("{}.csv".format(user.get('id')), 'a+') as f:
                 writer = csv.writer(f, quoting=csv.QUOTE_ALL)
                 writer.writerow(completedList)
