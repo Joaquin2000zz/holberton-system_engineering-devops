@@ -14,7 +14,8 @@ def top_ten(subreddit):
 ') if response.status_code != 404 else 0
     i = 0
     if len(response.json().get('data').get('children')) == 0:
-        return print(None)
+        print(None)
+        return
     for item in dataList:
         print(item.get('data').get('title')) if i < 11 else None
         i += 1
