@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """module which contains a function to bring information of Reddit API"""
 import requests
-import json
 
 
 def top_ten(subreddit):
