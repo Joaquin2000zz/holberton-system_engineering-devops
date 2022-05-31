@@ -9,12 +9,13 @@ def top_ten(subreddit):
     returns the titles of the first hot posts of a given subreddit
     """
     response = requests.get('https://reddit.com/r/{}/hot.json\
-'.format(subreddit), headers={'User-agent': 'botardo'})
+?limit=10'.format(subreddit), headers={'User-agent': 'botardo'})
     dataList = response.json().get('data').get('children\
 ') if response.status_code != 404 else None
+    if dataList is None:
+        return print("None")
     i = 0
     if len(response.json().get('data').get('children')) == 0:
         return print("None")
     for item in dataList:
-        print(item.get('data').get('title')) if i < 11 else None
-        i += 1
+        print(item.get('data').get('title'))
