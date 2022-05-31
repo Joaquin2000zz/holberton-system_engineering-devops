@@ -9,6 +9,6 @@ def number_of_subscribers(subreddit):
     returns the number of subscribers
     """
     response = requests.get('https://reddit.com/r/{}/about.json\
-'.format(subreddit), headers = {'User-agent': 'botardo'})
+'.format(subreddit), headers={'User-agent': 'botardo'})
     return response.json().get('data').get('subscribers\
 ') if response.status_code != 404 else 0
