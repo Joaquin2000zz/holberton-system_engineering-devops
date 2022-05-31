@@ -11,9 +11,10 @@ def top_ten(subreddit):
     response = requests.get('https://reddit.com/r/{}/hot.json\
 '.format(subreddit), headers={'User-agent': 'botardo'})
     dataList = response.json().get('data').get('children\
-') if response.status_code != 404 else print(None)
+') if response.status_code != 404 else 0
     i = 0
-    if response.status_code == 200:
-        for item in dataList:
-            print(item.get('data').get('title')) if i < 11 else None
-            i += 1
+    if len(response.json().get('data').get('children')) == 0:
+        return print(None)
+    for item in dataList:
+        print(item.get('data').get('title')) if i < 11 else None
+        i += 1
